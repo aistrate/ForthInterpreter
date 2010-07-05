@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8F23DA2B-4295-43A9-9DC9-54856885F285}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ForthInterpreter</RootNamespace>
+    <AssemblyName>Forth</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>ForthInterpreter.Program</StartupObject>
+    <PublishUrl>http://localhost/Forth/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataTypes\BoolType.cs" />
+    <Compile Include="DataTypes\CharString.cs" />
+    <Compile Include="DataTypes\CharType.cs" />
+    <Compile Include="DataTypes\CountedString.cs" />
+    <Compile Include="Interpret\DataStack.cs" />
+    <Compile Include="Interpret\Environment.cs" />
+    <Compile Include="Interpret\Validate.cs" />
+    <Compile Include="Interpret\Words\ControlFlow\BeginWhileRepeatWord.cs" />
+    <Compile Include="Interpret\Words\ControlFlow\BeginWord.cs" />
+    <Compile Include="Interpret\Words\ControlFlow\IfElseThenWord.cs" />
+    <Compile Include="Interpret\ControlFlowStack.cs" />
+    <Compile Include="Interpret\Words\ConstantWord.cs" />
+    <Compile Include="Interpret\Words\ControlFlow\OfWord.cs" />
+    <Compile Include="Interpret\Words\ControlFlow\CaseWord.cs" />
+    <Compile Include="Interpret\Words\ControlFlow\ControlFlowWord.cs" />
+    <Compile Include="Interpret\Words\ControlFlow\DoLoopWord.cs" />
+    <Compile Include="Interpret\Words\DefinedChildWord.cs" />
+    <Compile Include="Interpret\Words\DefiningWord.cs" />
+    <Compile Include="Interpret\Words\ExitWord.cs" />
+    <Compile Include="Interpret\Words\InstanceWord.cs" />
+    <Compile Include="Interpret\Memory.cs" />
+    <Compile Include="Interpret\Words\LiteralWord.cs" />
+    <Compile Include="Interpret\Words\ControlFlow\BasicLoopWord.cs" />
+    <Compile Include="Interpret\Words\PostponeWord.cs" />
+    <Compile Include="Interpret\Words\StringLiteralWord.cs" />
+    <Compile Include="Interpret\Words\VariableWord.cs" />
+    <Compile Include="IO\ConsoleStringBuilder.cs" />
+    <Compile Include="Kernel\Comments.cs" />
+    <Compile Include="Kernel\Compiling.cs" />
+    <Compile Include="Interpret\Interpreter.cs" />
+    <Compile Include="Interpret\Words\StackIntegerOpWord.cs" />
+    <Compile Include="Interpret\Words\Word.cs" />
+    <Compile Include="Interpret\WordDictionary.cs" />
+    <Compile Include="IO\FileLoader.cs" />
+    <Compile Include="Kernel\ControlFlow.cs" />
+    <Compile Include="Kernel\DevEnvironment.cs" />
+    <Compile Include="Kernel\IOOperations.cs" />
+    <Compile Include="Kernel\MathOperations.cs" />
+    <Compile Include="Kernel\MemoryOperations.cs" />
+    <Compile Include="Kernel\StackOperations.cs" />
+    <Compile Include="Kernel\StringOperations.cs" />
+    <Compile Include="Kernel\Variables.cs" />
+    <Compile Include="LexicalScan\Tokens\QuoteEndedStringToken.cs" />
+    <Compile Include="LexicalScan\QuoteEndedStringTokenReader.cs" />
+    <Compile Include="LexicalScan\Tokens\EmptyLineToken.cs" />
+    <Compile Include="LexicalScan\EmptyLineTokenReader.cs" />
+    <Compile Include="LexicalScan\Tokens\ParanEndedStringToken.cs" />
+    <Compile Include="LexicalScan\ParanEndedStringTokenReader.cs" />
+    <Compile Include="LexicalScan\Tokens\LineCommentToken.cs" />
+    <Compile Include="LexicalScan\LineCommentTokenReader.cs" />
+    <Compile Include="LexicalScan\Tokens\SignedIntegerToken.cs" />
+    <Compile Include="LexicalScan\SignedIntegerTokenReader.cs" />
+    <Compile Include="LexicalScan\TextBuffer.cs" />
+    <Compile Include="LexicalScan\Tokens\Token.cs" />
+    <Compile Include="LexicalScan\TokenReader.cs" />
+    <Compile Include="Interpret\InvalidWordException.cs" />
+    <Compile Include="LexicalScan\Tokens\WordToken.cs" />
+    <Compile Include="LexicalScan\WordTokenReader.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Kernel\Kernel.fth" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
